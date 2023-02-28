@@ -1,0 +1,20 @@
+<h3 class="page-title mb-4">{{ categoryName }}</h3>
+<div class="row mb-4" *ngFor="let quiz of quizList; let i = index;">
+    <div class="col-md-3" *ngFor="let quiz of quizList[i].quizzes">
+        <div class="card h-100">
+            <img class="card-img-top" [src]="getQuizImageUrl(quiz.id)" alt="{{quiz.name}}">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{ quiz.name }}</h5>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <span><small>{{ quiz.questions.length }} Questions</small></span><br>
+                        <span><small>{{ quiz.userId }}</small></span>
+                    </div>
+                    <button mdbBtn size="sm" class="btn px-3 btn-quiz" routerLink="/testee/quiz/{{quiz.id}}">
+                        <i class="fas fa-play text-white"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
